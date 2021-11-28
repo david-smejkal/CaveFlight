@@ -2,6 +2,11 @@
 Simple flight simulator in a randomly generated environment. Written in assembly language using OpenGL.
 ![CaveFlight screenshot](https://smejkal.software/img/caveflight_scr2.jpg)
 
+## Controls
+Esc      - Ends the game
+P        - Pauses the game
+SpaceBar - Accelerates upwards
+
 ## Project Assignment
 Make a simple game in assemly language with help of win32api and opengl. You have nasmGL.exe (modified for real constant usage) to your disposal.
 
@@ -14,7 +19,7 @@ Collisions are handled in OpenGL using a stencil buffer technique (more details 
 
 ## Implementation
 
-### Liraries
+### Libraries
 - kernel32.dll - functions that allow working with kernel such as `ExitProcess()`, `Sleep()`, etc.
 - user32.dll - win32api, creation of the window, handling of the window, etc.
 - advapi32.dll - extended api functions, also used for generating random numbers
@@ -61,11 +66,6 @@ The actual implementation is achieved by drawing relevant objects into stencil b
 Doing the above we end up with a stencil buffer where solid objects are represented by `1`, free space by `0` and collisions by `2`.
 By calling `glReadPixels()` around the ship we can eficiently check for any `2` occurrences in the stencil buffer to detect a collision.
 When that happens we can then call `InitGame` to set the game back into the initial state.
-
-## Controlls
-Esc      - Ends the game
-P        - Pauses the game
-SpaceBar - Accelerates upwards
 
 ## Conclusion
 We can further enhance the game using various textures and images and by adding more objects. We don't have to change the inner workings of the game because in order for these objects to be collidable all we would have to do is to draw them in the stencil buffer.
