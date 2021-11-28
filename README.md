@@ -3,9 +3,11 @@ Simple flight simulator in a randomly generated environment. Written in assembly
 ![CaveFlight screenshot](https://smejkal.software/img/caveflight_scr2.jpg)
 
 ## Controls
+```
 Esc      - Ends the game
 P        - Pauses the game
 SpaceBar - Accelerates upwards
+```
 
 ## Project Assignment
 Make a simple game in assemly language with help of win32api and opengl. You have nasmGL.exe (modified for real constant usage) to your disposal.
