@@ -49,8 +49,8 @@ By calling `timeGetTime()` in every frame and by comparing that acquired value w
 ```
 
 ### Collisions
-Handling of collisions is done using OpenGL and as such doesn't require complex geometric math that would otherwise require considerably more CPU power.
-The actual implementation is achieved by drawing relevant objects into the stencil buffer and by subsequent reading of the stencil buffer to detect collisions.
+Handling of collisions is implemented using OpenGL and as such doesn't require complex geometric calculations that would otherwise take up considerably more CPU power.
+The actual implementation is achieved by drawing relevant objects in the stencil buffer and by reading of the stencil buffer around the ship to detect collisions.
 
 ```
   invoke glClearStencil, 1 ; set stencil buffer to 1
@@ -66,9 +66,9 @@ The actual implementation is achieved by drawing relevant objects into the stenc
   invoke glStencilOp, GL_KEEP, GL_KEEP, GL_INCR
 ```
 
-Doing the above results in solid objects represented by `1`, free space by `0` and collisions by `2` in OpenGL's stencil buffer.
-By calling `glReadPixels()` around the ship we can eficiently check for any `2` occurrences in the stencil buffer to detect a collision.
-When that happens we can then call `InitGame` to reset the game back into its initial state.
+Doing the above results in solid objects being represented by `1`, free space by `0` and collisions by `2` in OpenGL's stencil buffer.
+By calling `glReadPixels()` around the ship we can efficiently check for any `2` occurrences in the stencil buffer to detect a collision.
+When a collision happens the code then calls `InitGame` to reset the game.
 
 ## Conclusion
-The game can be further enhanced with various graphical textures and by adding more objects to the environment. Adding more objects shouldn't be too difficult because as long as they are also added to the stencil buffer they will automatically become collidable.
+The game can be further enhanced with various graphical textures and by adding more objects to the environment. Adding more objects should be relatively simple because as long as they are also added to the stencil buffer they will automatically become collidable.
