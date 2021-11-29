@@ -11,14 +11,14 @@ SpaceBar - Accelerates upwards
 ```
 
 ## Project Assignment
-Make a simple game in assemly language with help of win32api and opengl. You have nasmGL.exe (modified to allow usage of real constants) to your disposal.
+Write a simple game in the assembly language with a help of win32api and OpenGL libraries. You have `nasmGL.exe` (modified to allow usage of real constants) to your disposal.
 
 ## Design
-Game CaveFlight takes place in a randomly generated cave environment. Gravity of `1g` pulls the ship naturally downwards. Spacebar affects the movement in the opposite direction with acceleration of `-2g`. For simplicity we will add these two accelerations together and as such only need to deal with `-1g` when accelerating upwards.
+Game CaveFlight takes place in a randomly generated cave environment. Gravity of `1g` pulls the ship naturally downwards. Spacebar affects the movement in the opposite direction with acceleration of `-2g`. For the sake of simplicity we will add these two accelerations together and as such only need to deal with `-1g` when accelerating upwards.
 
-Cave, ship, text outputs (score, velocity, etc.) and everything else is rendered by OpenGL.
+Cave, ship, text outputs (score, velocity) and everything else is rendered by OpenGL.
 
-Collisions are handled with OpenGL using a stencil buffer technique (more details below).
+Collisions are handled in OpenGL using a stencil buffer technique (more details further below).
 
 ## Implementation
 
