@@ -1,5 +1,5 @@
 # CaveFlight
-Simple flight simulator in a randomly generated environment.
+A Simple flight simulator in a randomly generated environment.<br />
 Written in Assembly, utilizes OpenGL.
 ![CaveFlight screenshot](https://smejkal.software/img/caveflight_scr1.jpg)
 
